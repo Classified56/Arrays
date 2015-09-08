@@ -9,7 +9,7 @@ public class twoDimensionalArray
 				System.out.print("How many columns do you want? ");
 				int cols = userInput.nextInt();
 				int numArray[][] = new int[rows][cols];
-				int largeNum, smallNum;
+				int largeNum = 0, smallNum = 100;
 				for(int row = 0; row < rows; row++)
 					{
 						for(int col = 0; col < cols; col++)
@@ -17,12 +17,14 @@ public class twoDimensionalArray
 								int ranNum = (int)((Math.random() * 90) + 10);
 								numArray[row][col] = ranNum;
 								System.out.print(numArray[row][col] + "\t");
-								largeNum = numArray[0][0];
-								smallNum = numArray[0][0];
+								if(largeNum < numArray[row][col])
+									largeNum = numArray[row][col];
+								if(smallNum > numArray[row][col])
+									smallNum = numArray[row][col];
 							}
 						System.out.println(" ");
 					}
-				
+				System.out.println("The largest number is " + largeNum + ". The smallest number is " + smallNum);
 			}
 
 	}
